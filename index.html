@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head><link rel="stylesheet" href="style.css"></head>
-<script data-main="scripts/ak_jobs_scrap.js" src="scripts/require.js"></script>
 <header>
     <h1>Alaska Jobs Year to Year</h1>
 </header>
 <main>
 <div class="card">
-  <h1>Alaska</h1>
-  <p id="Alaska"></p>
+  <h1>Select an Alaska Economic Region</h1>
+  <select id="myselect" onchange="fetchJSON(this.value)">
+    <option value="">Choose an option:</option>
+    <option value="Alaska.json">Alaska</option>
+    <option value="MuniAnchorage.json">Muni of Anchorage</option>
+    <option value="Interior.json">Interior</option>
+    <option value="Southeast.json">Southeast</option>
+    <option value="Southwest.json">Southwest</option>
+    <option value="Northern.json">Northern</option>
+    <option value="GulfCoast.json">Gulf Coast</option>
+  </select>
+  <div id="myData"></div>
+    <script>
+        async function fetchJSON(region) {
+          fetch(region)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        }
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i = 1; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = data;
+                mainContainer.appendChild(div);
+            }
+        }
+    </script>
 </div>
 </main>
 <footer>2021</footer>
