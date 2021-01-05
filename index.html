@@ -19,6 +19,7 @@
   </select>
   <div id="myData"></div>
     <script>
+        var mainContainer = document.getElementById("myData");
         async function fetchJSON(region) {
           fetch(region)
             .then(function (response) {
@@ -32,11 +33,17 @@
             });
         }
         function appendData(data) {
-            var mainContainer = document.getElementById("myData");
-            for (var i = 1; i < data.length; i++) {
-                var div = document.createElement("div");
-                div.innerHTML = data[0][1];
-                mainContainer.appendChild(div);
+            mainContainer.innerHTML = "";
+            var header = document.createElement("h1");
+            header.innerHTML = data[0][1][0];
+            mainContainer.appendChild(header);
+            for (var i = 2; i < data.length; i++) {
+                var table = document.createElement("tr");
+                table.innerHTML = `<td>${data[0][i][0]}</td>&ensp;<td>${data[0][i][1]}</td>&ensp;<td>${data[0][i][2]}</td>&ensp;
+                                                  <td>${data[0][i][3]}</td>&ensp;<td>${data[0][i][4]}</td>&ensp;<td>${data[0][i][5]}</td>&ensp;
+                                                  <td>${data[0][i][6]}</td>&ensp;<td>${data[0][i][7]}</td>&ensp;<td>${data[0][i][8]}</td>&ensp;
+                                                  <td>${data[0][i][9]}</td>&ensp;<td>${data[0][i][10]}</td>&ensp;<td>${data[0][i][11]}</td>&ensp;<td>${data[0][i][12]}</td>`;
+                mainContainer.appendChild(table);
             }
         }
     </script>
