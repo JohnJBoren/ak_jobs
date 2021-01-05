@@ -8,6 +8,15 @@
 </header>
 <main>
 <div class="card">
+  <h1>Select Actual or Year-to-Year</h1>
+    <div>
+      <input type="radio" id="actual" name="ak_type" value="actual">
+      <label for="actual">Actual</label>
+    </div>
+    <div>
+      <input type="radio" id="y2y" name="ak_type" value="y2y">
+      <label for="y2y">Year-to-Year</label>
+    </div>
   <h1>Select an Alaska Economic Region</h1>
   <select id="myselect" onchange="fetchJSON(this.value)">
     <option value="">Choose an option:</option>
@@ -35,16 +44,16 @@
             });
         }
         function appendData(data) {
+          if ( (actual.checked === true) || (y2y.checked === false)) {
             mainContainer.innerHTML = "";
             for (var j = 0; j < 22; j++) {
               var header = document.createElement("h1");
-              if ( data[j][1] != undefined) {
+              if ( data[j][1][0] != undefined) {
                 header.innerHTML = data[j][1][0];
-
                 mainContainer.appendChild(header);
-                for (var i = 2; i < 14; i++) {
+                for (var i = 2; i < 38; i++) {
                     var table = document.createElement("tr");
-                    if (data[j][i] != undefined) {
+                    if (data[j][i][0] != undefined) {
                       table.innerHTML = `<td>${data[j][i][0]}</td>&emsp;<td>${data[j][i][1]}</td>&emsp;<td>${data[j][i][2]}</td>&emsp;
                                                       <td>${data[j][i][3]}</td>&emsp;<td>${data[j][i][4]}</td>&emsp;<td>${data[j][i][5]}</td>&emsp;
                                                       <td>${data[j][i][6]}</td>&emsp;<td>${data[j][i][7]}</td>&emsp;<td>${data[j][i][8]}</td>&emsp;
@@ -54,6 +63,40 @@
                 }
               }
             }
+          }
+          else if (y2y.checked === true) {
+            mainContainer.innerHTML = "";
+            for (var j = 0; j < 22; j++) {
+              var header = document.createElement("h1");
+              if ( data[j][1][0] != undefined) {
+                header.innerHTML = data[j][1][0] + " Year-to-Year";
+                mainContainer.appendChild(header);
+                for (var i = 2; i < 36; i++) {
+                    var table = document.createElement("tr");
+                    if (data[j][i] != undefined) {
+                      if (data[j][i][0] === "Industry") {
+                        table.innerHTML = `<td>${data[j][i][0]}</td>&emsp;<td>${data[j][i][1]}</td>&emsp;<td>${data[j][i][2]}</td>&emsp;
+                                                      <td>${data[j][i][3]}</td>&emsp;<td>${data[j][i][4]}</td>&emsp;<td>${data[j][i][5]}</td>&emsp;
+                                                      <td>${data[j][i][6]}</td>&emsp;<td>${data[j][i][7]}</td>&emsp;<td>${data[j][i][8]}</td>&emsp;
+                                                      <td>${data[j][i][9]}</td>&emsp;<td>${data[j][i][10]}</td>&emsp;<td>${data[j][i][11]}</td>&emsp;<td>${data[j][i][12]}</td>&emsp;<td>${data[j][i][13]}</td>`;
+                        mainContainer.appendChild(table);
+                      }
+                      else {
+                        if (data[j+1][i] != undefined) {
+                          if (data[j][i][0] === data[j+1][i][0]) {
+                          table.innerHTML = `<td>${data[j][i][0]}</td>&emsp;<td>${Number.parseInt(data[j][i][1].replace(/,/g, '')) - Number.parseInt(data[j+1][i][1].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][2].replace(/,/g, '')) - Number.parseInt(data[j+1][i][2].replace(/,/g, ''))}</td>&emsp;
+                                                        <td>${Number.parseInt(data[j][i][3].replace(/,/g, '')) - Number.parseInt(data[j+1][i][3].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][4].replace(/,/g, '')) - Number.parseInt(data[j+1][i][4].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][5].replace(/,/g, '')) - Number.parseInt(data[j+1][i][5].replace(/,/g, ''))}</td>&emsp;
+                                                        <td>${Number.parseInt(data[j][i][6].replace(/,/g, '')) - Number.parseInt(data[j+1][i][6].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][7].replace(/,/g, '')) - Number.parseInt(data[j+1][i][7].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][8].replace(/,/g, '')) - Number.parseInt(data[j+1][i][8].replace(/,/g, ''))}</td>&emsp;
+                                                        <td>${Number.parseInt(data[j][i][9].replace(/,/g, '')) - Number.parseInt(data[j+1][i][9].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][10].replace(/,/g, '')) - Number.parseInt(data[j+1][i][10].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][11].replace(/,/g, '')) - Number.parseInt(data[j+1][i][11].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][12].replace(/,/g, '')) - Number.parseInt(data[j+1][i][12].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][13].replace(/,/g, '')) - Number.parseInt(data[j+1][i][13].replace(/,/g, ''))}</td>`;
+                          mainContainer.appendChild(table);
+                        }
+                        }
+                      }
+                    }
+                }
+              }
+            }
+          }
         }
     </script>
 </div>
