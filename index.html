@@ -35,7 +35,7 @@
             var mainContainer = document.getElementById("myData");
             for (var i = 1; i < data.length; i++) {
                 var div = document.createElement("div");
-                div.innerHTML = data;
+                div.innerHTML = data[0][1];
                 mainContainer.appendChild(div);
             }
         }
