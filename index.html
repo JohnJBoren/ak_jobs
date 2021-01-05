@@ -36,16 +36,18 @@
         }
         function appendData(data) {
             mainContainer.innerHTML = "";
-            var header = document.createElement("h1");
-            header.innerHTML = data[0][1][0];
-            mainContainer.appendChild(header);
-            for (var i = 2; i < data.length; i++) {
-                var table = document.createElement("tr");
-                table.innerHTML = `<td>${data[0][i][0]}</td>&ensp;<td>${data[0][i][1]}</td>&ensp;<td>${data[0][i][2]}</td>&ensp;
-                                                  <td>${data[0][i][3]}</td>&ensp;<td>${data[0][i][4]}</td>&ensp;<td>${data[0][i][5]}</td>&ensp;
-                                                  <td>${data[0][i][6]}</td>&ensp;<td>${data[0][i][7]}</td>&ensp;<td>${data[0][i][8]}</td>&ensp;
-                                                  <td>${data[0][i][9]}</td>&ensp;<td>${data[0][i][10]}</td>&ensp;<td>${data[0][i][11]}</td>&ensp;<td>${data[0][i][12]}</td>`;
-                mainContainer.appendChild(table);
+            for (var j = 0; j < data.length; j++) {
+              var header = document.createElement("h1");
+              header.innerHTML = data[j][1][0];
+              mainContainer.appendChild(header);
+              for (var i = 2; i < data.length; i++) {
+                  var table = document.createElement("tr");
+                  table.innerHTML = `<td>${data[j][i][0]}</td>&emsp;<td>${data[j][i][1]}</td>&emsp;<td>${data[j][i][2]}</td>&emsp;
+                                                    <td>${data[j][i][3]}</td>&emsp;<td>${data[j][i][4]}</td>&emsp;<td>${data[j][i][5]}</td>&emsp;
+                                                    <td>${data[j][i][6]}</td>&emsp;<td>${data[j][i][7]}</td>&emsp;<td>${data[j][i][8]}</td>&emsp;
+                                                    <td>${data[j][i][9]}</td>&emsp;<td>${data[j][i][10]}</td>&emsp;<td>${data[j][i][11]}</td>&emsp;<td>${data[j][i][12]}</td>`;
+                  mainContainer.appendChild(table);
+              }
             }
         }
     </script>
