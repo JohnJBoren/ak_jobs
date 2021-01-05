@@ -1,0 +1,53 @@
+body {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    }
+
+    header {
+    background:#fcb040;
+    padding: 2rem;
+    font-family: "Franchise";
+    font-size: 30px;
+    display: grid;
+    place-items: center;
+    }
+
+    main {
+    display: grid;
+    grid-gap: 1rem;
+    background: #4e7792;
+    }
+
+    .visual {
+    height: 100px;
+    width: 100%;
+    background: #03a454;
+    margin: 0.5rem 0;
+    }
+
+    .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #4e7792;
+    padding: 1rem;
+    font-family: "LED_Display";
+    font-size: 20px;
+    }
+    footer {
+    background:#fcb040;
+    padding: 2rem;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Franchise";
+    }
+
+    body {
+    font-family: system-ui, sans-serif;
+    }
+
+    .mylist {
+    font-family: Roboto;
+    margin: 0.5rem 0;
+    }
