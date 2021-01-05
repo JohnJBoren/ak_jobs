@@ -81,15 +81,14 @@
                                                       <td>${data[j][i][9]}</td>&emsp;<td>${data[j][i][10]}</td>&emsp;<td>${data[j][i][11]}</td>&emsp;<td>${data[j][i][12]}</td>&emsp;<td>${data[j][i][13]}</td>`;
                         mainContainer.appendChild(table);
                       }
-                      else {
-                        if (data[j+1][i] != undefined) {
+                      else if (data[j+1][i] != undefined)  {
                           if (data[j][i][0] === data[j+1][i][0]) {
                           table.innerHTML = `<td>${data[j][i][0]}</td>&emsp;<td>${Number.parseInt(data[j][i][1].replace(/,/g, '')) - Number.parseInt(data[j+1][i][1].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][2].replace(/,/g, '')) - Number.parseInt(data[j+1][i][2].replace(/,/g, ''))}</td>&emsp;
                                                         <td>${Number.parseInt(data[j][i][3].replace(/,/g, '')) - Number.parseInt(data[j+1][i][3].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][4].replace(/,/g, '')) - Number.parseInt(data[j+1][i][4].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][5].replace(/,/g, '')) - Number.parseInt(data[j+1][i][5].replace(/,/g, ''))}</td>&emsp;
                                                         <td>${Number.parseInt(data[j][i][6].replace(/,/g, '')) - Number.parseInt(data[j+1][i][6].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][7].replace(/,/g, '')) - Number.parseInt(data[j+1][i][7].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][8].replace(/,/g, '')) - Number.parseInt(data[j+1][i][8].replace(/,/g, ''))}</td>&emsp;
                                                         <td>${Number.parseInt(data[j][i][9].replace(/,/g, '')) - Number.parseInt(data[j+1][i][9].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][10].replace(/,/g, '')) - Number.parseInt(data[j+1][i][10].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][11].replace(/,/g, '')) - Number.parseInt(data[j+1][i][11].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][12].replace(/,/g, '')) - Number.parseInt(data[j+1][i][12].replace(/,/g, ''))}</td>&emsp;<td>${Number.parseInt(data[j][i][13].replace(/,/g, '')) - Number.parseInt(data[j+1][i][13].replace(/,/g, ''))}</td>`;
                           mainContainer.appendChild(table);
-                        }
+
                         }
                       }
                     }
