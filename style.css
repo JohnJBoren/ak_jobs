@@ -23,7 +23,7 @@ background: #4e7792;
 height: 100px;
 width: 100%;
 background: #03a454;
-
+margin: 0.5rem 0;
 }
 
 .card {
@@ -68,7 +68,7 @@ h1 {
 .sticky {
   position: fixed;
   top: 0;
-  width: 100%
+  width: 98.65%
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
