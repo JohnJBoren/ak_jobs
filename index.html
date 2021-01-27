@@ -3,17 +3,14 @@
 <head><link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"></head>
-<header>
+<header id="myHeader">
     <h1>Alaska Monthly Employment Statistics by Region</h1>
-</header>
-<main>
-<div class="card">
-  <h1>Select Actual or Year-to-Year</h1>
-    <div>
+    <h1>Select Actual or Year-to-Year</h1>
+    <div class="select_it">
       <input type="radio" id="actual" name="ak_type" value="actual">
       <label for="actual">Actual</label>
     </div>
-    <div>
+    <div class="select_it">
       <input type="radio" id="y2y" name="ak_type" value="y2y">
       <label for="y2y">Year-to-Year</label>
     </div>
@@ -28,8 +25,30 @@
     <option value="Northern.json">Northern</option>
     <option value="GulfCoast.json">Gulf Coast</option>
   </select>
+</header>
+<main>
+<div class="card">
+
   <div id="myData"></div>
     <script>
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function() {myFunction()};
+
+        // Get the header
+        var header = document.getElementById("myHeader");
+
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+
         var mainContainer = document.getElementById("myData");
         async function fetchJSON(region) {
           fetch(region)

@@ -5,12 +5,12 @@ body {
     }
 
 header {
-background:#fcb040;
-padding: 1rem;
-font-family: 'Roboto', sans-serif;
-font-size: 30px;
-display: grid;
-place-items: center;
+    background:#fcb040;
+    padding: .25rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 8px;
+    display: grid;
+    place-items: center;
 }
 
 main {
@@ -23,7 +23,7 @@ background: #4e7792;
 height: 100px;
 width: 100%;
 background: #03a454;
-margin: 0.5rem 0;
+
 }
 
 .card {
@@ -31,21 +31,19 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 background: #4e7792;
-padding: 1rem;
-font-family: 'Roboto', sans-serif;
-font-size: 20px;
+padding: .33rem;
 }
+
 footer {
 background:#fcb040;
-padding: 1rem;
+padding: .33rem;
 text-align: center;
-font-size: 20px;
+font-size: 18px;
 font-family: 'Roboto', sans-serif;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 8px;
+.select_it {
+    font-size: 12px;
 }
 
 td {
@@ -53,7 +51,7 @@ td {
 }
 
 h1 {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .mylist {
@@ -64,4 +62,16 @@ h1 {
 #myselect {
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 10px;
 }
