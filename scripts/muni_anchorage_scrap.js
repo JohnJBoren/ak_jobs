@@ -1,4 +1,5 @@
 var scraper = require("table-scraper");
+var beautify = require("json-beautify");
 
 var alaska = "https://live.laborstats.alaska.gov/ces/ces.cfm?at=01&a=000000&adj=0#y2020";
 var southwest = "https://live.laborstats.alaska.gov/ces/ces.cfm?at=60&a=000004&adj=0";
@@ -9,5 +10,5 @@ var gulfcoast = "https://live.laborstats.alaska.gov/ces/ces.cfm?at=60&a=000003&a
 var muni_anchorage = "https://live.laborstats.alaska.gov/ces/ces.cfm?at=04&a=000020&adj=0";
 
 scraper.get(muni_anchorage).then(function (tableData) {
-   console.log(tableData);
+   console.log(beautify(tableData));
 });
