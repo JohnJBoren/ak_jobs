@@ -10,5 +10,6 @@ var gulfcoast = "https://live.laborstats.alaska.gov/ces/ces.cfm?at=60&a=000003&a
 var muni_anchorage = "https://live.laborstats.alaska.gov/ces/ces.cfm?at=04&a=000020&adj=0";
 
 scraper.get(alaska).then(function (tableData) {
+   // this beautify json module is clutch to save json properly
    console.log(beautify(tableData, null , 2));
 });
